@@ -821,6 +821,7 @@ const POSTGRES_FUNCTION_SIGNATURES = new Map<string, string[]>([
   ["ARRAY_AGG", ["expression"]],
   ["STRING_AGG", ["expression", "delimiter"]],
   ["GEN_RANDOM_UUID", []],
+  ["NOW", []],
 ]);
 
 const MYSQL_FUNCTION_SIGNATURES = new Map<string, string[]>([
@@ -829,6 +830,7 @@ const MYSQL_FUNCTION_SIGNATURES = new Map<string, string[]>([
   ["JSON_UNQUOTE", ["json"]],
   ["GROUP_CONCAT", ["expression"]],
   ["UUID", []],
+  ["NOW", []],
 ]);
 
 const SQLITE_FUNCTION_SIGNATURES = new Map<string, string[]>([
@@ -836,6 +838,7 @@ const SQLITE_FUNCTION_SIGNATURES = new Map<string, string[]>([
   ["JSON_SET", ["json", "path", "value"]],
   ["STRFTIME", ["format", "time"]],
   ["IFNULL", ["expression", "fallback"]],
+  ["NOW", []],
 ]);
 
 const SQLSERVER_FUNCTION_SIGNATURES = new Map<string, string[]>([
@@ -844,6 +847,20 @@ const SQLSERVER_FUNCTION_SIGNATURES = new Map<string, string[]>([
   ["JSON_VALUE", ["expression", "path"]],
   ["JSON_QUERY", ["expression", "path"]],
   ["NEWID", []],
+  ["GETDATE", []],
+  ["GETUTCDATE", []],
+  ["SYSDATETIME", []],
+  ["SYSUTCDATETIME", []],
+  ["DATEADD", ["datepart", "number", "date"]],
+  ["DATEDIFF", ["datepart", "startdate", "enddate"]],
+  ["DATEPART", ["datepart", "date"]],
+  ["DATENAME", ["datepart", "date"]],
+  ["EOMONTH", ["start_date"]],
+  ["CHARINDEX", ["substring", "string"]],
+  ["PATINDEX", ["pattern", "string"]],
+  ["LEN", ["string"]],
+  ["STUFF", ["string", "start", "length", "replace"]],
+  ["ISNULL", ["expression", "replacement"]],
 ]);
 
 const MANTICORESEARCH_FUNCTION_SIGNATURES = new Map<string, string[]>([
@@ -907,7 +924,6 @@ const COMMON_SQL_FUNCTION_NAMES = new Set([
   "LOWER",
   "LENGTH",
   "EXTRACT",
-  "NOW",
   "ROUND",
   "FLOOR",
   "CEIL",
